@@ -1,45 +1,67 @@
-<!-- tech_sharing.html -->
 {% extends "base.html" %}
 
-{% block title %}Tech Sharing - ngoctu125.com{% endblock title %}
+{% block title %}Tech Sharing - ngoctu125.com{% endblock %}
+
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/tech_sharing/tech_sharing_styles.css' %}">
+<script>
+    // Keep track of the currently selected link
+    let currentSelectedLink = null;
+
+    // JavaScript function to load post content dynamically and highlight the selected link
+    function loadPostContent(slug, clickedLink) {
+        if (currentSelectedLink) {
+            currentSelectedLink.classList.remove('selected'); // Remove the class from the previously selected link
+        }
+        currentSelectedLink = clickedLink; // Update the currently selected link
+        clickedLink.classList.add('selected'); // Add the 'selected' class to the clicked link
+
+        fetch(`/tech-sharing/${slug}/`) // Make sure this URL is correct for fetching post content
+            .then(response => response.text())
+            .then(html => {
+                // Update the tech-sharing-content div with the fetched post content
+                document.getElementById('tech-sharing-content').innerHTML = html;
+            })
+            .catch(error => console.error('Error loading the post content:', error));
+    }
+</script>
+{% endblock extra_head %}
 
 {% block content %}
-<section class="tech-sharing py-md-5 py-4" id="tech-sharing">
-    <div class="container-fluid mt-4">
-        <div class="row">
-            <!-- Left Column: Tech Sharing Menu (20%) -->
-            <div class="col-md-3 col-lg-2 d-none d-md-block" id="tech-sharing-menu">
-                <!-- This will take full width on small devices, 25% on medium devices and larger, and hidden on extra small devices -->
-                <nav class="nav flex-column">
-                    <a class="nav-link active" href="#">Overview</a>
-                    <a class="nav-link" href="#">Code Base</a>
-                    <a class="nav-link" href="#">Git Tutorial</a>
-                    <!-- Add other tech sharing links here -->
-                </nav>
-            </div>
+<section class="tech-sharing py-md-0 py-4" id="tech-sharing">
+    <div class="container-fluid">
+        <div class="row tech-sharing-row">
+            <!-- Conditionally Display Left Column Menu If Posts Exist -->
+            {% if tech_sharing_posts.exists %}
+                <div class="col-md-3 col-lg-2 collapse d-md-block" id="tech-sharing-menu">
+                    <nav class="nav flex-column">
+                        {% for post in tech_sharing_posts %}
+                            <a class="tech-sharing-title-link nav-link" href="javascript:void(0);" onclick="loadPostContent('{{ post.slug }}', this)">{{ post.title }}</a>
+                        {% endfor %}
+                    </nav>
+                </div>
+            {% endif %}
 
-            <!-- Center Column: Content (60% or 80% when right is hidden) -->
+            <!-- Center Column: Content Display -->
             <div class="col-12 col-md-9 col-lg-8" id="tech-sharing-content">
-                <!-- This will take 75% width on medium devices and larger, and full width on extra small devices -->
                 <article>
-                    <h1>Machine Learning Path Udacity</h1>
-                    <p>Udacity is a for-profit educational organization...</p>
-                    <!-- More content -->
+                    <h1>Don't have any topic</h1>
+                    <p>There are no tech sharing topics available at the moment. Please check back later.</p>
                 </article>
             </div>
 
-            <!-- Right Column: Sections/Index Menu (20%, hidden on iPad and smaller) -->
-            <div class="col-lg-2 d-none d-lg-block" id="tech-sections-menu">
-                <!-- This remains hidden on devices smaller than large devices -->
-                <div class="sticky-top">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">1. Introduction</li>
-                        <li class="nav-item">2. Learning Path</li>
-                        <li class="nav-item">3. Prerequisites</li>
-                        <!-- Add other sections here -->
-                    </ul>
+            <!-- Right Column: Sections/Index Menu (Displayed Only If Posts Exist) -->
+            {% if tech_sharing_posts.exists %}
+                <div class="col-lg-2 d-none d-lg-block" id="tech-sections-menu">
+                    <div class="sticky-top">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">1. Introduction (Placeholder)</li>
+                            <!-- Dynamic sections based on selected post's content -->
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            {% endif %}
         </div>
     </div>
 </section>

@@ -1,11 +1,58 @@
-/* @media (max-width: 1024px) {
-    .sections-menu {
-        display: none !important;
+@media (max-width: 767px) {
+    #tech-sharing-menu {
+        position: fixed;
+        z-index: 1000;
+        width: 80%;
+        height: 100%;
+        overflow-y: auto;
+        background-color: #fff; /* Or your preferred background color */
+    }
+    .collapse.show {
+        display: block;
     }
 }
 
-@media (max-width: 576px) {
-    .tech-sharing-menu, .sections-menu {
-        display: none !important;
-    }
-} */
+.container-fluid {
+    padding-left: 0 !important;
+}
+
+.tech-sharing-row {
+    min-height: 90vh; /* 100% of the viewport height */
+    margin: 0; /* Reset default margin */
+}
+
+#tech-sharing-menu {
+    background-color: rgb(231, 233, 235);
+}
+
+a.tech-sharing-title-link.nav-link:hover {
+    background-color: rgb(66, 190, 66);
+}
+
+a.selected {
+    background-color: rgb(66, 190, 66);
+}
+
+a.tech-sharing-title-link.nav-link {
+    color: #000;
+}
+
+.dark-theme a.tech-sharing-title-link.nav-link {
+    color: #fff;
+}
+
+.dark-theme #tech-sharing-menu {
+    background-color: #1d1e22;
+    border-right: 1px solid #fff;
+    color: #fff;
+}
+
+#tech-sections-menu {
+    border-left: 1px solid #000; /* Adjust color (#000 is black) and width as needed */
+    height: 100%; /* Make sure it takes full height */
+}
+
+.dark-theme #tech-sections-menu {
+    border-left: 1px solid #fff; /* Adjust color (#000 is black) and width as needed */
+    height: 100%; /* Make sure it takes full height */
+}

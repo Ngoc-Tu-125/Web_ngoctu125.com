@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'django_ckeditor_5',
+
+    'web_app.apps.WebAppConfig',
 ]
 
 MIDDLEWARE = [
@@ -76,7 +80,11 @@ WSGI_APPLICATION = 'web_manage.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'ngoctu125_web',
+        'USER': 'ngoctu125',
+        'PASSWORD': '120598',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
