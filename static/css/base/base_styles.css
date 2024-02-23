@@ -78,7 +78,7 @@ body {
 	 cursor: pointer;
 	 transition: background-color 0.5s ease-in, color 0.5s ease-in;
 }
- body .work {
+ body .tech-sharing {
 	 background-color: #fff;
 	 color: #1d1e22;
 	 border-bottom: 1px solid #cdcdcd;
@@ -110,11 +110,6 @@ body {
 		 max-height: 300px;
 		 width: 100%;
 	}
-}
- body .testimonial {
-	 background-color: #fff;
-	 color: #1d1e22;
-	 border-bottom: 1px solid #cdcdcd;
 }
  body .blog {
 	 background-color: #fff;
@@ -173,19 +168,11 @@ body {
  .dark-theme .services .container .row .col-sm-4 .card:hover {
 	 color: #1d1e22;
 }
- .dark-theme .work {
+ .dark-theme .tech-sharing {
 	 background-color: #1d1e22;
 	 color: #fff;
 }
  .dark-theme .about {
-	 background-color: #1d1e22;
-	 color: #fff;
-}
- .dark-theme .testimonial {
-	 background-color: #1d1e22;
-	 color: #fff;
-}
- .dark-theme .blog {
 	 background-color: #1d1e22;
 	 color: #fff;
 }

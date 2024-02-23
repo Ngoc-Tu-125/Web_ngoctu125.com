@@ -1,0 +1,46 @@
+<!-- tech_sharing.html -->
+{% extends "base.html" %}
+
+{% block title %}Tech Sharing - ngoctu125.com{% endblock title %}
+
+{% block content %}
+<section class="tech-sharing py-md-5 py-4" id="tech-sharing">
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Left Column: Tech Sharing Menu (20%) -->
+            <div class="col-md-3 col-lg-2 d-none d-md-block" id="tech-sharing-menu">
+                <!-- This will take full width on small devices, 25% on medium devices and larger, and hidden on extra small devices -->
+                <nav class="nav flex-column">
+                    <a class="nav-link active" href="#">Overview</a>
+                    <a class="nav-link" href="#">Code Base</a>
+                    <a class="nav-link" href="#">Git Tutorial</a>
+                    <!-- Add other tech sharing links here -->
+                </nav>
+            </div>
+
+            <!-- Center Column: Content (60% or 80% when right is hidden) -->
+            <div class="col-12 col-md-9 col-lg-8" id="tech-sharing-content">
+                <!-- This will take 75% width on medium devices and larger, and full width on extra small devices -->
+                <article>
+                    <h1>Machine Learning Path Udacity</h1>
+                    <p>Udacity is a for-profit educational organization...</p>
+                    <!-- More content -->
+                </article>
+            </div>
+
+            <!-- Right Column: Sections/Index Menu (20%, hidden on iPad and smaller) -->
+            <div class="col-lg-2 d-none d-lg-block" id="tech-sections-menu">
+                <!-- This remains hidden on devices smaller than large devices -->
+                <div class="sticky-top">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">1. Introduction</li>
+                        <li class="nav-item">2. Learning Path</li>
+                        <li class="nav-item">3. Prerequisites</li>
+                        <!-- Add other sections here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

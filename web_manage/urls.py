@@ -21,4 +21,5 @@ from web_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
+    path('tech-sharing/', views.tech_sharing, name='tech_sharing'),
 ]

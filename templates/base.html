@@ -25,13 +25,13 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="#header">Home</a>
+                                <a class="nav-link" href="{% url 'home' %}">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#about">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#tech-sharing">Tech Sharing</a>
+                                <a class="nav-link" href="{% url 'tech_sharing' %}">Tech Sharing</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#address-bar">Contact</a>
@@ -53,13 +53,6 @@
             <div class="col-md-6 mb-md-0 mb-3">
             nguyenngoctu1205@gmail.com
             </div>
-            {% comment %} <div class="col-md-6 d-md-flex justify-content-end">
-            <ul class="list-unstyled">
-                <li class="d-sm-inline ps-2 mb-md-0 mb-2"><a href="#">Disclaimer</a></li>
-                <li class="d-sm-inline ps-2 mb-md-0 mb-2"><a href="#">Privacy</a></li>
-                <li class="d-sm-inline ps-2 mb-md-0 mb-2"><a href="#">Terms of Services</a></li>
-            </ul>
-            </div> {% endcomment %}
         </div>
         </div>
     </section>

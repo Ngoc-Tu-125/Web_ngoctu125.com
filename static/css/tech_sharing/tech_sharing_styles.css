@@ -1,0 +1,11 @@
+/* @media (max-width: 1024px) {
+    .sections-menu {
+        display: none !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .tech-sharing-menu, .sections-menu {
+        display: none !important;
+    }
+} */
