@@ -5,6 +5,8 @@
 {% block extra_head %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/tech_sharing/tech_sharing_styles.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
 <script>
     // Keep track of the currently selected link
     let currentSelectedLink = null;
@@ -20,11 +22,23 @@
         fetch(`/tech-sharing/${slug}/`) // Make sure this URL is correct for fetching post content
             .then(response => response.text())
             .then(html => {
-                // Update the tech-sharing-content div with the fetched post content
-                document.getElementById('tech-sharing-content').innerHTML = html;
+                const contentDiv = document.getElementById('tech-sharing-content');
+                contentDiv.innerHTML = html; // Update the tech-sharing-content div with the fetched post content
+
+                // Re-apply syntax highlighting to all code blocks in the newly loaded content
+                contentDiv.querySelectorAll('pre code').forEach(block => {
+                    hljs.highlightBlock(block);
+                });
             })
             .catch(error => console.error('Error loading the post content:', error));
     }
+
+    // Initial syntax highlighting for any code blocks present on page load
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
 </script>
 {% endblock extra_head %}
 
@@ -65,4 +79,6 @@
         </div>
     </div>
 </section>
+
+
 {% endblock content %}

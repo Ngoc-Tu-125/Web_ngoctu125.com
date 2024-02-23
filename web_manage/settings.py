@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'django_ckeditor_5',
+    'ckeditor',
+    'ckeditor_uploader',
 
     'web_app.apps.WebAppConfig',
 ]
@@ -107,6 +108,53 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+# Blog post setup
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'width': '100%',
+        'height': 400,
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Link', 'Image', 'Undo', 'Redo'],
+            ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates'],
+            ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord'],
+            ['Find', 'Replace', '-', 'SelectAll', '-', 'Scayt', 'wsc'],  # Added wsc here for WebSpellChecker
+            ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'],
+            '/',
+            ['Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv',
+             '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language'],
+            ['Unlink', 'Anchor'],
+            ['Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe'],
+            '/',
+            ['Styles', 'Format', 'Font', 'FontSize'],
+            ['TextColor', 'BGColor'],
+            ['Maximize', 'ShowBlocks'],
+            ['CodeSnippet'],
+            ['About'],
+        ],
+        # Removed stylesheetparser from removePlugins
+        'extraPlugins': ','.join(['filebrowser', 'justify', 'liststyle', 'indent', 'codesnippet', 'wsc', 'image2']),
+        'filebrowserBrowseUrl': '/ckeditor/browse/',
+        'filebrowserUploadUrl': '/ckeditor/upload/',
+        'tabSpaces': 4,
+        'font_names': 'Arial/Arial, Helvetica, sans-serif;' +
+                      'Comic Sans MS/Comic Sans MS, cursive;' +
+                      'Courier New/Courier New, Courier, monospace;' +
+                      'Georgia/Georgia, serif;' +
+                      'Lucida Sans Unicode/Lucida Sans Unicode, Lucida Grande, sans-serif;' +
+                      'Tahoma/Tahoma, Geneva, sans-serif;' +
+                      'Times New Roman/Times New Roman, Times, serif;' +
+                      'Trebuchet MS/Trebuchet MS, Helvetica, sans-serif;' +
+                      'Verdana/Verdana, Geneva, sans-serif',
+        'fontSize_sizes': '8/8px;9/9px;10/10px;11/11px;12/12px;14/14px;16/16px;' +
+                          '18/18px;20/20px;22/22px;24/24px;26/26px;28/28px;36/36px;48/48px;72/72px',
+    },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/

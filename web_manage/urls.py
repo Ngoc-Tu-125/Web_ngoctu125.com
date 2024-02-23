@@ -24,5 +24,5 @@ urlpatterns = [
     path('tech-sharing/', views.tech_sharing, name='tech_sharing'),
     path('tech-sharing/<slug:slug>/', views.tech_sharing_detail, name='tech_sharing_detail'),
 
-    path("ckeditor5/", include('django_ckeditor_5.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
