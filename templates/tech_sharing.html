@@ -7,39 +7,7 @@
 <link rel="stylesheet" href="{% static 'css/tech_sharing/tech_sharing_styles.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
-<script>
-    // Keep track of the currently selected link
-    let currentSelectedLink = null;
-
-    // JavaScript function to load post content dynamically and highlight the selected link
-    function loadPostContent(slug, clickedLink) {
-        if (currentSelectedLink) {
-            currentSelectedLink.classList.remove('selected'); // Remove the class from the previously selected link
-        }
-        currentSelectedLink = clickedLink; // Update the currently selected link
-        clickedLink.classList.add('selected'); // Add the 'selected' class to the clicked link
-
-        fetch(`/tech-sharing/${slug}/`) // Make sure this URL is correct for fetching post content
-            .then(response => response.text())
-            .then(html => {
-                const contentDiv = document.getElementById('tech-sharing-content');
-                contentDiv.innerHTML = html; // Update the tech-sharing-content div with the fetched post content
-
-                // Re-apply syntax highlighting to all code blocks in the newly loaded content
-                contentDiv.querySelectorAll('pre code').forEach(block => {
-                    hljs.highlightBlock(block);
-                });
-            })
-            .catch(error => console.error('Error loading the post content:', error));
-    }
-
-    // Initial syntax highlighting for any code blocks present on page load
-    document.addEventListener('DOMContentLoaded', (event) => {
-        document.querySelectorAll('pre code').forEach((block) => {
-            hljs.highlightBlock(block);
-        });
-    });
-</script>
+<script src="{% static 'js/tech_sharing/tech_sharing_js.js' %}"></script>
 {% endblock extra_head %}
 
 {% block content %}
@@ -49,11 +17,13 @@
             <!-- Conditionally Display Left Column Menu If Posts Exist -->
             {% if tech_sharing_posts.exists %}
                 <div class="col-md-3 col-lg-2 collapse d-md-block" id="tech-sharing-menu">
-                    <nav class="nav flex-column">
-                        {% for post in tech_sharing_posts %}
-                            <a class="tech-sharing-title-link nav-link" href="javascript:void(0);" onclick="loadPostContent('{{ post.slug }}', this)">{{ post.title }}</a>
-                        {% endfor %}
-                    </nav>
+                    <div class="sticky-top">
+                        <nav class="nav flex-column">
+                            {% for post in tech_sharing_posts %}
+                                <a class="tech-sharing-title-link nav-link" href="javascript:void(0);" onclick="loadPostContent('{{ post.slug }}', this)">{{ post.title }}</a>
+                            {% endfor %}
+                        </nav>
+                    </div>
                 </div>
             {% endif %}
 
@@ -66,16 +36,14 @@
             </div>
 
             <!-- Right Column: Sections/Index Menu (Displayed Only If Posts Exist) -->
-            {% if tech_sharing_posts.exists %}
-                <div class="col-lg-2 d-none d-lg-block" id="tech-sections-menu">
-                    <div class="sticky-top">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">1. Introduction (Placeholder)</li>
-                            <!-- Dynamic sections based on selected post's content -->
-                        </ul>
-                    </div>
+            <div class="col-lg-2 d-none d-lg-block" id="tech-sections-menu">
+                <div class="sticky-top">
+                    <ul id="sections-list" class="nav flex-column">
+                        <li class="nav-item">1. Introduction (Placeholder)</li>
+                        <!-- Dynamic sections based on selected post's content -->
+                    </ul>
                 </div>
-            {% endif %}
+            </div>
         </div>
     </div>
 </section>

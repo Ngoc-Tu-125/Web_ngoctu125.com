@@ -23,6 +23,7 @@
 
 #tech-sharing-menu {
     background-color: rgb(231, 233, 235);
+    padding-top: 10px;
 }
 
 a.tech-sharing-title-link.nav-link:hover {
@@ -47,12 +48,34 @@ a.tech-sharing-title-link.nav-link {
     color: #fff;
 }
 
+#tech-sharing-content {
+    padding-top: 10px;
+}
+
 #tech-sections-menu {
     border-left: 1px solid #000; /* Adjust color (#000 is black) and width as needed */
-    height: 100%; /* Make sure it takes full height */
+    padding-top: 10px;
 }
 
 .dark-theme #tech-sections-menu {
     border-left: 1px solid #fff; /* Adjust color (#000 is black) and width as needed */
     height: 100%; /* Make sure it takes full height */
+}
+
+a.tech-sections-menu-link.nav-link {
+    color: #000;
+}
+
+.dark-theme a.tech-sections-menu-link.nav-link {
+    color: #fff;
+}
+
+a.tech-sections-menu-link.nav-link:hover {
+    background-color: rgb(66, 190, 66);
+}
+
+#tech-sections-menu, #tech-sharing-menu {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 50px; /* Adjust based on your header/nav height */
 }

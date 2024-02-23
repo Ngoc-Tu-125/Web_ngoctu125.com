@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
   window.addEventListener('scroll', function() {
     const navigation = document.querySelector('.navigation');
     if (window.scrollY >= 60) {
-      navigation.classList.add('sticky-md-top', 'sticky-navigation', 'shadow');
+      navigation.classList.add('sticky-navigation', 'shadow');
     } else {
-      navigation.classList.remove('sticky-md-top', 'sticky-navigation', 'shadow');
+      navigation.classList.remove('sticky-navigation', 'shadow');
     }
   });
 
