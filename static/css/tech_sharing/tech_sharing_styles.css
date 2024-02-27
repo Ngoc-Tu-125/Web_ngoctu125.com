@@ -79,3 +79,9 @@ a.tech-sections-menu-link.nav-link:hover {
     position: sticky;
     top: 50px; /* Adjust based on your header/nav height */
 }
+
+/* Indented and smaller style for h3 items */
+.h3-style {
+    font-size: 14px; /* Smaller font size */
+    margin-left: 20px; /* Indentation */
+}

@@ -31,8 +31,9 @@ class TechSharing(models.Model):
         return ' '.join([f'#{tag.name}' for tag in self.tags.all()])
 
     def get_sections(self):
+        """Parse the full_content and extract H2 and H3 headings."""
         soup = BeautifulSoup(self.full_content, "html.parser")
-        headings = soup.find_all(['h1', 'h2'])
+        headings = soup.find_all(['h2', 'h3'])
         sections = []
         for idx, heading in enumerate(headings):
             id_base = slugify(heading.text)[:30]  # Shorten and slugify the text to create a base for the ID

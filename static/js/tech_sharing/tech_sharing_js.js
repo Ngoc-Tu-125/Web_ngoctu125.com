@@ -37,6 +37,10 @@ function loadPostContent(slug, clickedLink) {
             data.sections.forEach(section => {
                 const listItem = document.createElement('li');
                 listItem.className = 'nav-item';
+                if (section.tag === 'h3') {
+                    listItem.classList.add('h3-style'); // Add a class for h3 styles
+                }
+
                 const anchor = document.createElement('a');
                 anchor.href = `#${section.id}`;
                 anchor.className = 'tech-sections-menu-link nav-link';
