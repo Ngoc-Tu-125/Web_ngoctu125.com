@@ -20,7 +20,7 @@
                     <div class="sticky-top">
                         <nav class="nav flex-column">
                             {% for post in tech_sharing_posts %}
-                                <a class="tech-sharing-title-link nav-link" href="javascript:void(0);" onclick="loadPostContent('{{ post.slug }}', this)">{{ post.title }}</a>
+                                <a class="tech-sharing-title-link nav-link" href="javascript:void(0);" onclick="loadPostContent('{{ topic.slug }}', '{{ post.slug }}', this)">{{ post.title }}</a>
                             {% endfor %}
                         </nav>
                     </div>

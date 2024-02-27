@@ -2,14 +2,14 @@
 let currentSelectedLink = null;
 
 // JavaScript function to load post content dynamically and highlight the selected link
-function loadPostContent(slug, clickedLink) {
+function loadPostContent(topic_slug, post_slug, clickedLink) {
     if (currentSelectedLink) {
         currentSelectedLink.classList.remove('selected');
     }
     currentSelectedLink = clickedLink;
     clickedLink.classList.add('selected');
 
-    fetch(`/tech-sharing/${slug}/`)
+    fetch(`/tech-sharing/topic/${topic_slug}/${post_slug}/`)
         .then(response => response.json())
         .then(data => {
             const contentDiv = document.getElementById('tech-sharing-content');

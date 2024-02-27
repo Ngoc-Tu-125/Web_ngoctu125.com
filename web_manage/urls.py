@@ -21,8 +21,9 @@ from web_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('tech-sharing/', views.tech_sharing, name='tech_sharing'),
-    path('tech-sharing/<slug:slug>/', views.tech_sharing_detail, name='tech_sharing_detail'),
+    # path('tech-sharing/', views.tech_sharing, name='tech_sharing'),
+    path('tech-sharing/topic/<slug:topic_slug>/', views.tech_sharing, name='tech_sharing_by_topic'),
+    path('tech-sharing/topic/<slug:topic_slug>/<slug:post_slug>/', views.tech_sharing_detail, name='tech_sharing_detail'),
 
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
