@@ -10,12 +10,26 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
+class TechTopic(models.Model):
+    title = models.CharField(max_length=255, unique=True)
+    description = models.TextField(blank=True)
+    slug = models.SlugField(max_length=255, unique=True)
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.pk:  # Only set the slug when the object is first created
+            self.slug = slugify(self.title)
+        super(TechTopic, self).save(*args, **kwargs)
+
 class TechSharing(models.Model):
     title = models.CharField(max_length=255)
     date_published = models.DateTimeField(auto_now_add=True)
     full_content = RichTextUploadingField(default="Tech Sharing content")
     slug = models.SlugField(max_length=255, unique=True)  # Make slug not editable from the admin
     tags = models.ManyToManyField(Tag, related_name='tech_sharing')
+    topic = models.ForeignKey(TechTopic, on_delete=models.CASCADE, related_name='tech_sharings')  # ForeignKey added
 
     def __str__(self):
         return self.title

@@ -20,6 +20,15 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
+            name='TechTopic',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('title', models.CharField(max_length=255, unique=True)),
+                ('description', models.TextField(blank=True)),
+                ('slug', models.SlugField(max_length=255, unique=True)),
+            ],
+        ),
+        migrations.CreateModel(
             name='TechSharing',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
@@ -28,6 +37,7 @@ class Migration(migrations.Migration):
                 ('full_content', ckeditor_uploader.fields.RichTextUploadingField(verbose_name='Content')),
                 ('slug', models.SlugField(max_length=255, unique=True)),
                 ('tags', models.ManyToManyField(related_name='tech_sharing', to='web_app.tag')),
+                ('topic', models.ForeignKey(on_delete=models.CASCADE, related_name='tech_sharings', to='web_app.techtopic', null=True)),
             ],
         ),
     ]
