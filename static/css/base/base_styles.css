@@ -9,6 +9,9 @@ body {
  body a:hover {
 	 color: #4ab24e;
 }
+ body h4 {
+	color: #1d1e22 !important;
+ }
  body ::selection {
 	 background-color: #46a049;
 	 color: #fff;
@@ -42,7 +45,7 @@ body {
 	 width: 4rem;
 }
  body .header {
-	 background-image: url("https://images.unsplash.com/photo-1525863076872-bd16ca4ceef3?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80");
+	 /* background-image: url("https://images.unsplash.com/photo-1525863076872-bd16ca4ceef3?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80"); */
 	 background-position: 80% 25%;
 	 background-repeat: no-repeat;
 	 background-size: 640px auto;

@@ -4,6 +4,21 @@ from django.utils.text import slugify
 from bs4 import BeautifulSoup
 
 
+class HomePageText(models.Model):
+    IDENTIFIER_CHOICES = [
+        ('home_intro', 'Home Introduction'),
+        ('home_about', 'Home About'),
+        ('home_tech_sharing', 'Home Tech Sharing'),
+        ('home_github_repo', 'Home Github Repository'),
+    ]
+
+    identifier = models.CharField(max_length=100, choices=IDENTIFIER_CHOICES, unique=True)
+    content = models.TextField()
+
+    def __str__(self):
+        return self.get_identifier_display()
+
+
 class Tag(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
