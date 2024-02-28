@@ -183,3 +183,8 @@ body {
 	 background-color: #fff;
 	 color: #1d1e22;
 }
+
+.btn-git-view {
+	background-color: #333642 !important;
+	border-color: #4ab24e !important;
+}

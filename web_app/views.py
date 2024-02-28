@@ -2,14 +2,21 @@ from django.shortcuts import render, get_object_or_404
 from .models import TechSharing, TechTopic, HomePageText
 from django.http import JsonResponse
 from django.template.loader import render_to_string
+import requests
 
 def home(request):
     home_texts = HomePageText.objects.all()
     # Convert texts to a dictionary for easy access in the template
     home_texts_dict = {text.identifier: text.content for text in home_texts}
 
+    # Get tech topics
     tech_topics = TechTopic.objects.all()  # Get all TechTopic instances
-    return render(request, 'home.html', {'tech_topics': tech_topics, 'home_texts': home_texts_dict})
+
+    # Get repo in github
+    response = requests.get('https://api.github.com/users/Ngoc-Tu-125/repos')
+    repos = response.json()
+
+    return render(request, 'home.html', {'tech_topics': tech_topics, 'home_texts': home_texts_dict, 'github_repos': repos})
 
 def tech_sharing(request, topic_slug=None):
     if topic_slug:
