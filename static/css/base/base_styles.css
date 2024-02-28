@@ -7,10 +7,10 @@ body {
 	 text-decoration: none;
 }
  body a:hover {
-	 color: #4ab24e;
+	 color: #4ab24e !important;
 }
- body h4 {
-	color: #1d1e22 !important;
+ body .card-title{
+	color: #1d1e22;
  }
  body ::selection {
 	 background-color: #46a049;
@@ -114,6 +114,20 @@ body {
 		 width: 100%;
 	}
 }
+ body .contacts {
+	background-color: #fff;
+	color: #1d1e22;
+	border-bottom: 1px solid #cdcdcd;
+}
+ body .contacts .card-img-overlay {
+	background-color: #fff;
+}
+ body .contacts .card:hover .card-img-overlay {
+	background-color: #fff;
+}
+ body .contacts .card-contacts {
+	border-color: #4ab24e !important;
+ }
  body .blog {
 	 background-color: #fff;
 	 color: #1d1e22;
@@ -178,6 +192,17 @@ body {
  .dark-theme .about {
 	 background-color: #1d1e22;
 	 color: #fff;
+}
+ .dark-theme .contacts {
+	background-color: #1d1e22;
+	color: #fff;
+}
+ .dark-theme .contacts .card-contacts {
+	background-color: #1d1e22;
+	color: #fff;
+}
+ .dark-theme .card-title {
+	color: #fff;
 }
  .dark-theme .darkthemebtn {
 	 background-color: #fff;

@@ -1,10 +1,14 @@
 from django.contrib import admin
-from .models import TechSharing, HomePageText, TechTopic, Tag
+from .models import TechSharing, HomePageText, TechTopic, Tag, Contacts
 
 
 @admin.register(HomePageText)
 class HomePageTextAdmin(admin.ModelAdmin):
     list_display = ('identifier', 'content')
+
+@admin.register(Contacts)
+class ContactsAdmin(admin.ModelAdmin):
+    list_display = ('identifier', 'link')
 
 @admin.register(TechTopic)
 class TechTopicAdmin(admin.ModelAdmin):

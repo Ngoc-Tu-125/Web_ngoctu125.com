@@ -18,6 +18,19 @@ class HomePageText(models.Model):
     def __str__(self):
         return self.get_identifier_display()
 
+class Contacts(models.Model):
+    IDENTIFIER_CHOICES = [
+        ('contacts_facebook', 'Facebook'),
+        ('contacts_instagram', 'Instagram'),
+        ('contacts_linkedln', 'Linkedln'),
+    ]
+
+    identifier = models.CharField(max_length=100, choices=IDENTIFIER_CHOICES, unique=True)
+    link = models.TextField()
+
+    def __str__(self):
+        return self.get_identifier_display()
+
 
 class Tag(models.Model):
     name = models.CharField(max_length=100, unique=True)
