@@ -13,7 +13,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const darkThemeBtn = document.querySelector('.darkthemebtn');
   darkThemeBtn.addEventListener('click', function() {
     document.body.classList.toggle('dark-theme');
+    // Save the dark theme state in localStorage
+    if (document.body.classList.contains('dark-theme')) {
+      localStorage.setItem('darkTheme', 'enabled');
+    } else {
+      localStorage.removeItem('darkTheme');
+    }
   });
+
+  // Check if dark theme was previously enabled
+  if (localStorage.getItem('darkTheme')) {
+    document.body.classList.add('dark-theme');
+  }
 
   // Back to top button
   const backToTopBtn = document.querySelector('.back-to-top');
