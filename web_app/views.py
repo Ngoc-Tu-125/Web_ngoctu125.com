@@ -3,6 +3,7 @@ from .models import TechSharing, TechTopic, HomePageText, Contacts
 from django.http import JsonResponse
 from django.template.loader import render_to_string
 import requests
+from requests.exceptions import Timeout, RequestException
 
 def home(request):
     home_texts = HomePageText.objects.all()
@@ -17,8 +18,15 @@ def home(request):
     tech_topics = TechTopic.objects.all()  # Get all TechTopic instances
 
     # Get repo in github
-    response = requests.get('https://api.github.com/users/Ngoc-Tu-125/repos')
-    repos = response.json()
+    try:
+        response = requests.get('https://api.github.com/users/Ngoc-Tu-125/repos', timeout=5)
+        repos = response.json()
+    except Timeout:
+        # Handle Timeout exception
+        repos = 'Timeout occurred'
+    except RequestException as e:
+        # Handle other requests exceptions
+        repos = str(e)
 
     # Context
     context = {

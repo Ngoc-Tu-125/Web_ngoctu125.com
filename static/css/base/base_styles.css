@@ -6,10 +6,13 @@ body {
 	 color: #46a049;
 	 text-decoration: none;
 }
- body a:hover {
+ /* body a:hover {
 	 color: #4ab24e !important;
-}
+} */
  body .card-title{
+	color: #fff;
+ }
+ body .card-dark-title {
 	color: #1d1e22;
  }
  body ::selection {
@@ -52,12 +55,12 @@ body {
 	 background-color: #1d1e22;
 	 color: #fff;
 }
- body .header .intro-cards .container .row .col-md-4:first-child .card {
+ /* body .header .intro-cards .container .row .col-md-4:first-child .card {
 	 background-color: #46a049;
-}
- body .header .intro-cards .container .row .col-md-4:first-child .card .divider-shape {
+} */
+ /* body .header .intro-cards .container .row .col-md-4:first-child .card .divider-shape {
 	 background-color: #1d1e22;
-}
+} */
  body .header .intro-cards .container .row .col-md-4 .card {
 	 background-color: #1d1e22;
 	 color: #fff;
@@ -77,9 +80,16 @@ body {
 }
  body .services .container .row .col-sm-4 .card:hover {
 	 background-color: #46a049;
-	 color: #fff;
+	 border-color: #46a049;
+	 color: #1d1e22;
 	 cursor: pointer;
 	 transition: background-color 0.5s ease-in, color 0.5s ease-in;
+}
+ body .contacts .container .row .col-md-4 .card:hover {
+	background-color: #46a049;
+	border-color: #46a049;
+	cursor: pointer;
+	transition: background-color 0.5s ease-in, color 0.5s ease-in;
 }
  body .tech-sharing {
 	 background-color: #fff;
@@ -175,15 +185,25 @@ body {
  body .back-to-top:hover {
 	 color: #46a049;
 }
+ .dark-theme .card-dark-title{
+	color: #fff;
+}
  .dark-theme .services {
 	 background-color: #1d1e22;
 	 color: #fff;
 }
  .dark-theme .services .container .row .col-sm-4 .card {
-	 background-color: #46a049;
+	 background-color: #1d1e22;
+	 border-color: #46a049;
+}
+ .intro-cards .container .row .col-md-4 .card {
+	border-color: #46a049;
 }
  .dark-theme .services .container .row .col-sm-4 .card:hover {
 	 color: #1d1e22;
+}
+ .dark-theme .about .container .row .col-md-4 .card {
+	border-color: #46a049;
 }
  .dark-theme .tech-sharing {
 	 background-color: #1d1e22;
@@ -211,5 +231,9 @@ body {
 
 .btn-git-view {
 	background-color: #333642 !important;
-	border-color: #4ab24e !important;
+	border-color: #798579 !important;
+}
+
+body a.btn-git-view:hover {
+	color: #4ab24e;
 }
