@@ -114,6 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 
+SILENCED_SYSTEM_CHECKS = ['ckeditor.W001']
 CKEDITOR_CONFIGS = {
     'default': {
         'width': '100%',
