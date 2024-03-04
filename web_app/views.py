@@ -62,3 +62,6 @@ def contacts(request):
     # Convert texts to a dictionary for easy access in the template
     contacts_dict = {text.identifier: text.link for text in contacts}
     return render(request, 'contacts.html', {'contacts': contacts_dict})
+
+def about_me(request):
+    return render(request, 'about_me.html')

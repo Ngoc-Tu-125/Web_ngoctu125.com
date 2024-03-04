@@ -26,6 +26,7 @@ urlpatterns = [
     path('tech-sharing/topic/<slug:topic_slug>/<slug:post_slug>/', views.tech_sharing_detail, name='tech_sharing_detail'),
 
     path('contacts/', views.contacts, name='contacts'),
+    path('about/', views.about_me, name='about_me'),
 
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
