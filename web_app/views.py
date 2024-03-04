@@ -39,12 +39,22 @@ def home(request):
     return render(request, 'home.html', context)
 
 def tech_sharing(request, topic_slug=None):
+    contacts = Contacts.objects.all()
+    # Convert texts to a dictionary for easy access in the template
+    contacts_dict = {text.identifier: text.link for text in contacts}
+
     if topic_slug:
         topic = get_object_or_404(TechTopic, slug=topic_slug)
         tech_sharing_posts = TechSharing.objects.filter(topic=topic).order_by('-date_published')
     else:
         tech_sharing_posts = TechSharing.objects.all().order_by('-date_published')
-    return render(request, 'tech_sharing.html', {'tech_sharing_posts': tech_sharing_posts, 'topic': topic if topic_slug else None})
+
+    context = {
+        'tech_sharing_posts': tech_sharing_posts,
+        'topic': topic if topic_slug else None,
+        'contacts': contacts_dict,
+    }
+    return render(request, 'tech_sharing.html', context)
 
 def tech_sharing_detail(request, topic_slug, post_slug):
     topic = get_object_or_404(TechTopic, slug=topic_slug)
@@ -64,4 +74,11 @@ def contacts(request):
     return render(request, 'contacts.html', {'contacts': contacts_dict})
 
 def about_me(request):
-    return render(request, 'about_me.html')
+    contacts = Contacts.objects.all()
+    # Convert texts to a dictionary for easy access in the template
+    contacts_dict = {text.identifier: text.link for text in contacts}
+
+    context = {
+        'contacts': contacts_dict,
+    }
+    return render(request, 'about_me.html', context)
