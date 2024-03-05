@@ -8,45 +8,66 @@
 {% endblock extra_head %}
 
 {% block content %}
-<div class="content-wrapper">
-    <section class="main-content">
+<div class="content-wrapper row">
+    <section class="main-content col-md-9 col-lg-9">
         <section class="about-summary py-md-4 py-4" id="about-summary">
             <div class="container py-md-4 py-4">
                 <div class="divider-shape"></div>
-                <h2>Summary</h2>
+                <h2>SUMMARY</h2>
             </div>
         </section>
 
         <section class="about-skills py-md-4 py-4" id="about-skills">
             <div class="container py-md-4 py-4">
                 <div class="divider-shape"></div>
-                <h2>Skills</h2>
+                <h2>SKILLS</h2>
             </div>
         </section>
 
         <section class="about-work-experience py-md-4 py-4" id="about-work-experience">
             <div class="container py-md-4 py-4">
                 <div class="divider-shape"></div>
-                <h2>Work Experience</h2>
+                <h2>WORK EXPERIENCE</h2>
+                <div class="work-experience-block">
+                    <span class="work-experience-date">2012-2014</span>
+                    <div class="work-experience-details">
+                        <h3 class="work-experience-title">JOB POSITION</h3>
+                        <p class="work-experience-company">Company Name/ California USA</p>
+                        <p class="work-experience-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                        <span class="skills-list">
+                            <span class="skill-tag">Angular</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Express</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">Devops</span>
+                            <span class="skill-tag">OOP</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">JS</span>
+                            <!-- ... other skills -->
+                        </span>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section class="about-personal-project py-md-4 py-4" id="about-personal-project">
             <div class="container py-md-4 py-4">
                 <div class="divider-shape"></div>
-                <h2>Personal Project</h2>
+                <h2>PERSONAL PROJECT</h2>
             </div>
         </section>
 
         <section class="about-education py-md-4 py-4" id="about-education">
             <div class="container py-md-4 py-4">
                 <div class="divider-shape"></div>
-                <h2>Education</h2>
+                <h2>EDUCATION</h2>
             </div>
         </section>
     </section>
 
-    <aside class="about-sidebar">
+    <aside class="about-sidebar col-md-3 col-lg-3">
         <!-- Your sidebar content goes here -->
         <div class="about-sidebar-content">
             <img src="{% static 'image/avatar.jpg' %}" alt="Avatar">

@@ -4,16 +4,12 @@
 }
 
 .main-content {
-    float: left;
-    width: 70%;
     padding: 20px;
     background-color: #fff;
     color: #1d1e22;
 }
 
 .about-sidebar {
-    float: right;
-    width: 20%;
     background-color: #f5f5f5; /* Example background color */
     padding: 20px;
     box-sizing: border-box;
@@ -23,9 +19,15 @@
     margin-top: 0;
     color: #333; /* Example color */
 }
+.dark-theme .about-sidebar-content h3 {
+    color: #f5f5f5;
+}
 
 .about-sidebar-content p {
-    color: #666; /* Example color */
+    color: #666;
+}
+.dark-theme .about-sidebar-content p {
+    color: #f5f5f5;
 }
 
 .about-sidebar-content img {
@@ -48,6 +50,87 @@
 
 .contact-button:hover {
     background-color: #0056b3; /* Darker button color on hover */
+}
+
+
+/* Work experience section */
+.about-work-experience {
+    font-family: Arial, sans-serif; /* Change the font as needed */
+    color: #333;
+}
+
+.dark-theme .about-work-experience {
+    color: #f5f5f5;
+}
+
+.about-work-experience .container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.about-work-experience h2 {
+    text-align: left;
+    color: #000;
+    margin-bottom: 20px;
+}
+.dark-theme .about-work-experience h2 {
+    color: #fff;
+}
+.dark-theme .about-work-experience p {
+    color: #d6d3d6;
+}
+
+.work-experience-block {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.work-experience-date {
+    flex-basis: 20%;
+    font-weight: bold;
+    color: #666; /* or your preferred color */
+}
+.dark-theme .work-experience-date{
+    color: rgb(247, 243, 243);
+}
+
+.work-experience-details {
+    flex-basis: 80%;
+}
+
+.work-experience-title {
+    margin: 0;
+    font-size: 18px; /* or your preferred size */
+    color: #000;
+    font-weight: bold;
+}
+.dark-theme .work-experience-title{
+    color: rgb(247, 243, 243);
+}
+
+.work-experience-company {
+    margin: 5px 0;
+    font-weight: normal;
+    color: #666; /* or your preferred color */
+}
+
+.work-experience-description {
+    margin-top: 10px;
+    color: #333;
+}
+
+.skill-tag {
+    display: inline-block;
+    margin: 2px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px; /* Pill shape */
+    font-size: 12px; /* Adjust as needed */
+}
+
+.skills-list {
+    margin-top: 10px; /* Space above the skills list */
 }
 
 /* Dark theme */
