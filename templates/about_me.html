@@ -2,6 +2,82 @@
 
 {% block title %}About - ngoctu125.com{% endblock title %}
 
-{% block content %}
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/about/about_me.css' %}">
+{% endblock extra_head %}
 
+{% block content %}
+<div class="content-wrapper">
+    <section class="main-content">
+        <section class="about-summary py-md-4 py-4" id="about-summary">
+            <div class="container py-md-4 py-4">
+                <div class="divider-shape"></div>
+                <h2>Summary</h2>
+            </div>
+        </section>
+
+        <section class="about-skills py-md-4 py-4" id="about-skills">
+            <div class="container py-md-4 py-4">
+                <div class="divider-shape"></div>
+                <h2>Skills</h2>
+            </div>
+        </section>
+
+        <section class="about-work-experience py-md-4 py-4" id="about-work-experience">
+            <div class="container py-md-4 py-4">
+                <div class="divider-shape"></div>
+                <h2>Work Experience</h2>
+            </div>
+        </section>
+
+        <section class="about-personal-project py-md-4 py-4" id="about-personal-project">
+            <div class="container py-md-4 py-4">
+                <div class="divider-shape"></div>
+                <h2>Personal Project</h2>
+            </div>
+        </section>
+
+        <section class="about-education py-md-4 py-4" id="about-education">
+            <div class="container py-md-4 py-4">
+                <div class="divider-shape"></div>
+                <h2>Education</h2>
+            </div>
+        </section>
+    </section>
+
+    <aside class="about-sidebar">
+        <!-- Your sidebar content goes here -->
+        <div class="about-sidebar-content">
+            <img src="{% static 'image/avatar.jpg' %}" alt="Avatar">
+            <h3>Hello!</h3>
+            <p>I'm passionate about technology and human behavior, hardworker and a fast-learner with experience in around 10 different countries studying, working and volunteering.</p>
+            <h3>Contact details</h3>
+            <p>Phone: +84 38502****</p>
+            <p>Email: nguyenngoctu1205@gmail.com</p>
+            <p>Address: Ha Noi, Viet Nam</p>
+            <h3>Get social</h3>
+            <div class="row">
+                <ul class="list-unstyled">
+                    <li class="d-inline pe-3">
+                        <a href="{{ contacts.contacts_facebook }}" class="btn btn-main">
+                            <i class="ri-facebook-line"></i>
+                        </a>
+                    </li>
+                    <li class="d-inline pe-3">
+                        <a href="{{ contacts.contacts_instagram }}" class="btn btn-main">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                    </li>
+                    <li class="d-inline pe-3">
+                        <a href="{{ contacts.contacts_linkedln }}" class="btn btn-main">
+                            <i class="ri-linkedin-box-fill"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </aside>
+</div>
 {% endblock %}

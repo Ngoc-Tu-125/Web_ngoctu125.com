@@ -1,0 +1,63 @@
+/*  */
+.content-wrapper {
+    display: flex;
+}
+
+.main-content {
+    float: left;
+    width: 70%;
+    padding: 20px;
+    background-color: #fff;
+    color: #1d1e22;
+}
+
+.about-sidebar {
+    float: right;
+    width: 20%;
+    background-color: #f5f5f5; /* Example background color */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.about-sidebar-content h3 {
+    margin-top: 0;
+    color: #333; /* Example color */
+}
+
+.about-sidebar-content p {
+    color: #666; /* Example color */
+}
+
+.about-sidebar-content img {
+    max-width: 100%; /* Ensures that image is not bigger than its container */
+    height: auto; /* Keeps the aspect ratio of the image */
+    display: block; /* Removes bottom space under the image */
+    border-radius: 10%;
+}
+
+.contact-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff; /* Example button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #0056b3; /* Darker button color on hover */
+}
+
+/* Dark theme */
+.dark-theme .main-content {
+    background-color: #1d1e22;
+    color: #fff;
+}
+
+.dark-theme .about-sidebar {
+    background-color: #1d1e22;
+    color: #fff;
+    border-left: 1px solid #46a049;
+}

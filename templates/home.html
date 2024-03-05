@@ -21,7 +21,7 @@
         <div class="container">
             <div class="row">
             <div class="col-md-4 mb-md-0 mb-2">
-                <div class="card shadow-sm">
+                <div class="card shadow-sm" onclick="window.location.href='{% url 'about_me' %}'" style="cursor: pointer;">
                 <div class="card-body">
                     <i class="ri-rocket-fill ri-3x mb-5"></i>
                     <h3 class="card-title">About me</h3>
@@ -94,37 +94,6 @@
                     </div>
                 </div>
             {% endfor %}
-        </div>
-        </div>
-    </section>
-    <section class="footer-cta py-md-5 py-4" id="footer-cta">
-        <div class="container py-md-5 py-4">
-        <div class="row">
-            <div class="col-md-4  d-md-flex align-items-center">
-                <ul class="list-unstyled">
-                    <li class="d-inline pe-2">
-                        <a href="{{ contacts.contacts_facebook }}" class="btn btn-main">
-                            <i class="ri-facebook-line ri-3x"></i>
-                        </a>
-                    </li>
-                    <li class="d-inline pe-2">
-                        <a href="{{ contacts.contacts_instagram }}" class="btn btn-main">
-                            <i class="ri-instagram-line ri-3x"></i>
-                        </a>
-                    </li>
-                    <li class="d-inline pe-2">
-                        <a href="{{ contacts.contacts_linkedin }}" class="btn btn-main">
-                            <i class="ri-linkedin-box-fill ri-3x"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-4 d-flex justify-content-center  align-items-center  my-md-0 my-3">
-            <h2>Let's Connect</h2>
-            </div>
-            <div class="col-md-4 d-md-flex justify-content-end  align-items-center">
-            <a href="{% url 'contacts' %}" class="btn btn-main btn-lg">Let Me Connect!</a>
-            </div>
         </div>
         </div>
     </section>

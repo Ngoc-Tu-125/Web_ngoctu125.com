@@ -6,9 +6,6 @@ body {
 	 color: #46a049;
 	 text-decoration: none;
 }
- /* body a:hover {
-	 color: #4ab24e !important;
-} */
  body .card-title{
 	color: #fff;
  }
@@ -55,12 +52,6 @@ body {
 	 background-color: #1d1e22;
 	 color: #fff;
 }
- /* body .header .intro-cards .container .row .col-md-4:first-child .card {
-	 background-color: #46a049;
-} */
- /* body .header .intro-cards .container .row .col-md-4:first-child .card .divider-shape {
-	 background-color: #1d1e22;
-} */
  body .header .intro-cards .container .row .col-md-4 .card {
 	 background-color: #1d1e22;
 	 color: #fff;
