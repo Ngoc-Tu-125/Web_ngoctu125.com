@@ -1,5 +1,8 @@
 from django.contrib import admin
-from .models import TechSharing, HomePageText, TechTopic, Tag, Contacts
+from .models import (TechSharing, HomePageText, TechTopic, Tag, Contacts,
+                     Greeting, Summary, TechSkill, WorkExperience,
+                     PersonalProject, Education, PersonalContacts, Skills
+)
 
 
 @admin.register(HomePageText)
@@ -22,3 +25,38 @@ class TechSharingAdmin(admin.ModelAdmin):
 
 admin.site.register(Tag)
 admin.site.register(TechSharing, TechSharingAdmin)
+
+# About
+@admin.register(Summary)
+class SummaryAdmin(admin.ModelAdmin):
+    list_display = ('summary',)
+
+@admin.register(Skills)
+class SkillsAdmin(admin.ModelAdmin):
+    list_display = ('skill_text',)
+
+@admin.register(TechSkill)
+class TechSkillAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+
+@admin.register(WorkExperience)
+class WorkExperienceAdmin(admin.ModelAdmin):
+    list_display = ('job_position', 'company_name', 'start_time', 'end_time')
+    filter_horizontal = ('skills',)
+
+@admin.register(PersonalProject)
+class PersonalProjectAdmin(admin.ModelAdmin):
+    list_display = ('project_name',)
+    filter_horizontal = ('skills',)
+
+@admin.register(Education)
+class EducationAdmin(admin.ModelAdmin):
+    list_display = ('university_name', 'degree')
+
+@admin.register(PersonalContacts)
+class PersonalContactsAdmin(admin.ModelAdmin):
+    list_display = ('phone', 'email', 'address')
+
+@admin.register(Greeting)
+class GreetingAdmin(admin.ModelAdmin):
+    list_display = ('greeting', 'bio')

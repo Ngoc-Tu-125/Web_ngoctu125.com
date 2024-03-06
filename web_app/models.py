@@ -2,6 +2,7 @@ from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils.text import slugify
 from bs4 import BeautifulSoup
+from django.conf import settings
 
 
 class HomePageText(models.Model):
@@ -83,3 +84,82 @@ class TechSharing(models.Model):
             sections.append({'tag': heading.name, 'text': heading.text.strip(), 'id': unique_id})
         return sections
 
+
+
+# About me
+class SingletonModel(models.Model):
+    class Meta:
+        abstract = True  # Specifies that this model is an abstract base class
+
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super().save(*args, **kwargs)
+        # Delete any extra instances
+        self.__class__.objects.exclude(pk=self.pk).delete()
+
+    @classmethod
+    def load(cls):
+        obj, created = cls.objects.get_or_create(pk=1)
+        return obj
+
+class Summary(SingletonModel):
+    summary = models.TextField()
+
+    def __str__(self):
+        return self.summary
+
+class Skills(models.Model):
+    skill_text = models.TextField()
+
+    def __str__(self):
+        return self.skill_text
+
+class TechSkill(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+class WorkExperience(models.Model):
+    job_position = models.CharField(max_length=255)
+    company_name = models.CharField(max_length=255)
+    description = models.TextField()
+    skills = models.ManyToManyField(TechSkill)
+    start_time = models.CharField(max_length=20)
+    end_time = models.CharField(max_length=20)
+
+    def __str__(self):
+        return f"{self.job_position} at {self.company_name}"
+
+class PersonalProject(models.Model):
+    project_name = models.CharField(max_length=255)
+    description = models.TextField()
+    skills = models.ManyToManyField(TechSkill)
+    link = models.URLField(blank=True, null=True)
+
+    def __str__(self):
+        return self.project_name
+
+class Education(models.Model):
+    university_name = models.CharField(max_length=255)
+    degree = models.CharField(max_length=255)
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return f"{self.degree} from {self.university_name}"
+
+class PersonalContacts(SingletonModel):
+    phone = models.CharField(max_length=20, blank=True)
+    email = models.EmailField(blank=True)
+    address = models.CharField(max_length=255, blank=True)
+
+    def __str__(self):
+        return f"{self.phone}, {self.email}"
+
+class Greeting(SingletonModel):
+    avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)
+    greeting = models.CharField(max_length=255, blank=True)
+    bio = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.greeting_text[:50]

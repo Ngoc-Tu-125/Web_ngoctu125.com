@@ -14,7 +14,11 @@
             <div class="container py-md-2 py-4">
                 <h2>SUMMARY</h2>
                 <div class="divider-shape"></div>
+                {% if summary.summary %}
+                <p>{{ summary }}</p>
+                {% else %}
                 <p>Communication skills: I have confident verbal communication skills as demonstrated by delivering presentations in front of a large group, feeding back proposals to senior management and negotiating improvements to business processes across different departments.</p>
+                {% endif %}
             </div>
         </section>
 
@@ -23,6 +27,11 @@
                 <h2>SKILLS</h2>
                 <div class="divider-shape"></div>
                 <ul class="skills-list">
+                    {% if skills %}
+                        {% for skill in skills %}
+                        <li>{{ skill.skill_text }}</li>
+                        {% endfor %}
+                    {% else %}
                     <li>
                         Communication skills: I have confident verbal communication skills as demonstrated by delivering presentations in front of a large group, feeding back proposals to senior management and negotiating improvements to business processes across different departments.
                     </li>
@@ -32,6 +41,7 @@
                     <li>
                         Researching skills: I have experience of and talent for investigating, analysing and researching a variety of different processes and offering practical improvements and solutions for the benefit of the organisation.
                     </li>
+                    {% endif %}
                 </ul>
             </div>
         </section>
@@ -41,6 +51,21 @@
                 <h2>WORK EXPERIENCE</h2>
                 <div class="divider-shape"></div>
                 <div class="work-experience-block">
+                    {% if work_experiences %}
+                        {% for work_experience in work_experiences %}
+                        <span class="work-experience-date">{{ work_experience.start_time }}-{{ work_experience.end_time }}</span>
+                        <div class="work-experience-details">
+                            <h3 class="work-experience-title">{{ work_experience.job_position }}</h3>
+                            <p class="work-experience-company">{{ work_experience.company_name }}</p>
+                            <p class="work-experience-description">{{ work_experience.description }}</p>
+                            <span class="skills-list">
+                                {% for tech_skill in work_experience.skills.all %}
+                                <span class="skill-tag">{{ tech_skill.name }}</span>
+                                {% endfor %}
+                            </span>
+                        </div>
+                        {% endfor %}
+                    {% else %}
                     <span class="work-experience-date">2012-2014</span>
                     <div class="work-experience-details">
                         <h3 class="work-experience-title">JOB POSITION</h3>
@@ -57,9 +82,9 @@
                             <span class="skill-tag">Git</span>
                             <span class="skill-tag">Linux</span>
                             <span class="skill-tag">JS</span>
-                            <!-- ... other skills -->
                         </span>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </section>

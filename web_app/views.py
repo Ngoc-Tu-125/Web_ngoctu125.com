@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import TechSharing, TechTopic, HomePageText, Contacts
+from .models import Summary, WorkExperience, PersonalProject, Education, PersonalContacts, Greeting, Skills
 from django.http import JsonResponse
 from django.template.loader import render_to_string
 import requests
@@ -78,7 +79,22 @@ def about_me(request):
     # Convert texts to a dictionary for easy access in the template
     contacts_dict = {text.identifier: text.link for text in contacts}
 
+    greeting = Greeting.load()
+    summary = Summary.load()
+    work_experiences = WorkExperience.objects.all()
+    personal_projects = PersonalProject.objects.all()
+    skills = Skills.objects.all()
+    educations = Education.objects.all()
+    contacts = PersonalContacts.load()
+
     context = {
         'contacts': contacts_dict,
+        'greeting': greeting,
+        'summary': summary,
+        'skills': skills,
+        'work_experiences': work_experiences,
+        'personal_projects': personal_projects,
+        'educations': educations,
+        'contacts': contacts,
     }
     return render(request, 'about_me.html', context)
