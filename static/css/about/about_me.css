@@ -52,6 +52,26 @@
     background-color: #0056b3; /* Darker button color on hover */
 }
 
+/* Skills */
+.about-skills {
+    font-family: Arial, sans-serif; /* This should match the font in your example */
+}
+
+.skills-list {
+    list-style-type: none; /* Removes default bullets */
+    padding-left: 0; /* Removes default padding */
+}
+
+.skills-list li::before {
+    content: '• '; /* Adds custom bullet */
+    font-size: 24px; /* Adjust size as needed */
+    padding-right: 8px; /* Adds space between bullet and text */
+}
+
+.skills-list li {
+    margin-bottom: 5px;
+}
+
 
 /* Work experience section */
 .about-work-experience {
