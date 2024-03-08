@@ -50,9 +50,9 @@
             <div class="container py-md-2 py-4">
                 <h2>WORK EXPERIENCE</h2>
                 <div class="divider-shape"></div>
-                <div class="work-experience-block">
-                    {% if work_experiences %}
-                        {% for work_experience in work_experiences %}
+                {% if work_experiences %}
+                    {% for work_experience in work_experiences %}
+                    <div class="work-experience-block">
                         <span class="work-experience-date">{{ work_experience.start_time }}-{{ work_experience.end_time }}</span>
                         <div class="work-experience-details">
                             <h3 class="work-experience-title">{{ work_experience.job_position }}</h3>
@@ -64,8 +64,10 @@
                                 {% endfor %}
                             </span>
                         </div>
-                        {% endfor %}
-                    {% else %}
+                    </div>
+                    {% endfor %}
+                {% else %}
+                <div class="work-experience-block">
                     <span class="work-experience-date">2012-2014</span>
                     <div class="work-experience-details">
                         <h3 class="work-experience-title">JOB POSITION</h3>
@@ -84,8 +86,8 @@
                             <span class="skill-tag">JS</span>
                         </span>
                     </div>
-                    {% endif %}
                 </div>
+                {% endif %}
             </div>
         </section>
 
@@ -93,9 +95,9 @@
             <div class="container py-md-2 py-4">
                 <h2>PERSONAL PROJECT</h2>
                 <div class="divider-shape"></div>
-                <div class="personal-project-block">
-                    {% if personal_projects %}
-                        {% for personal_project in personal_projects %}
+                {% if personal_projects %}
+                    {% for personal_project in personal_projects %}
+                    <div class="personal-project-block">
                         <h4 class="personal-project-title">{{ personal_project.project_name }}</h4>
                         <p class="personal-project-description">{{ personal_project.description }}</p>
                         <span class="skills-list">
@@ -108,8 +110,10 @@
                                 <span>Check it out</span>
                             </div>
                         </a>
-                        {% endfor %}
-                    {% else %}
+                    </div>
+                    {% endfor %}
+                {% else %}
+                <div class="personal-project-block">
                     <h4 class="personal-project-title">PROJECT NAME</h4>
                     <p class="personal-project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
                     <span class="skills-list">
@@ -128,8 +132,8 @@
                         <span>Check it out</span>
                         <i class="ri-arrow-right-circle-line"></i>
                     </div>
-                    {% endif %}
                 </div>
+                {% endif %}
             </div>
         </section>
 
