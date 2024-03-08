@@ -94,7 +94,23 @@
                 <h2>PERSONAL PROJECT</h2>
                 <div class="divider-shape"></div>
                 <div class="personal-project-block">
-                    <h3 class="personal-project-title">PROJECT NAME</h3>
+                    {% if personal_projects %}
+                        {% for personal_project in personal_projects %}
+                        <h4 class="personal-project-title">{{ personal_project.project_name }}</h4>
+                        <p class="personal-project-description">{{ personal_project.description }}</p>
+                        <span class="skills-list">
+                            {% for tech_skill in work_experience.skills.all %}
+                                <span class="skill-tag">{{ tech_skill.name }}</span>
+                            {% endfor %}
+                        </span>
+                        <a href="{{ personal_project.link }}" class="personal-project-checkout-link" target="_blank" rel="noopener noreferrer">
+                            <div class="personal-project-checkout">
+                                <span>Check it out</span>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    {% else %}
+                    <h4 class="personal-project-title">PROJECT NAME</h4>
                     <p class="personal-project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
                     <span class="skills-list">
                         <span class="skill-tag">Angular</span>
@@ -112,6 +128,7 @@
                         <span>Check it out</span>
                         <i class="ri-arrow-right-circle-line"></i>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </section>
@@ -120,8 +137,15 @@
             <div class="container py-md-2 py-4">
                 <h2>EDUCATION</h2>
                 <div class="divider-shape"></div>
-                <h3>London Business School</h3>
+                {% if educations %}
+                    {% for education in educations %}
+                    <h4>{{ education.university_name }}</h4>
+                    <p>{{ education.degree }}</p>
+                    {% endfor %}
+                {% else %}
+                <h4>London Business School</h4>
                 <p>Master Degree</p>
+                {% endif %}
             </div>
         </section>
     </section>

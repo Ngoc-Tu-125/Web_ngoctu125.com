@@ -58,6 +58,7 @@ class TechSharing(models.Model):
     full_content = RichTextUploadingField(default="Tech Sharing content")
     slug = models.SlugField(max_length=255, unique=True)  # Make slug not editable from the admin
     tags = models.ManyToManyField(Tag, related_name='tech_sharing')
+    is_hidden = models.BooleanField(default=False)
     topic = models.ForeignKey(TechTopic, on_delete=models.CASCADE, related_name='tech_sharings')  # ForeignKey added
 
     def __str__(self):

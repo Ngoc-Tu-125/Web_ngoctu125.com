@@ -46,7 +46,7 @@ def tech_sharing(request, topic_slug=None):
 
     if topic_slug:
         topic = get_object_or_404(TechTopic, slug=topic_slug)
-        tech_sharing_posts = TechSharing.objects.filter(topic=topic).order_by('-date_published')
+        tech_sharing_posts = TechSharing.objects.filter(topic=topic, is_hidden=False).order_by('-date_published')
     else:
         tech_sharing_posts = TechSharing.objects.all().order_by('-date_published')
 
@@ -85,7 +85,7 @@ def about_me(request):
     personal_projects = PersonalProject.objects.all()
     skills = Skills.objects.all()
     educations = Education.objects.all()
-    contacts = PersonalContacts.load()
+    personal_contacts = PersonalContacts.load()
 
     context = {
         'contacts': contacts_dict,
@@ -95,6 +95,6 @@ def about_me(request):
         'work_experiences': work_experiences,
         'personal_projects': personal_projects,
         'educations': educations,
-        'contacts': contacts,
+        'personal_contacts': contacts,
     }
     return render(request, 'about_me.html', context)
