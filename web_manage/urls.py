@@ -19,6 +19,16 @@ from django.conf import settings
 from django.urls import path, include
 from web_app import views
 from django.conf.urls.static import static
+from django.contrib.sitemaps.views import sitemap
+from web_app.sitemaps import StaticViewSitemap, TechSharingSitemap, TechTopicSitemap, TechSkillSitemap
+
+sitemaps = {
+    'static': StaticViewSitemap,
+    'tech_sharing': TechSharingSitemap,
+    'tech_topic': TechTopicSitemap,
+    'tech_skills': TechSkillSitemap,
+}
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,4 +41,6 @@ urlpatterns = [
     path('about/', views.about_me, name='about_me'),
 
     path('ckeditor/', include('ckeditor_uploader.urls')),
+
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
