@@ -20,13 +20,31 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3k$n!dca1*=&rz86o2!hw%ha_rtjw970%ol(hk!yid_#cm&6sa'
+SECRET_KEY = 'E5VPOF%-=l$:8=7([Ki\'Ew=hoc"v]k+[Jm}9D9"U5\\p\'N1pF7w.Ngoctu125'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ngoctu125.com', 'www.ngoctu125.com', '34.16.129.40', '127.0.0.1']
 
+
+# Set the HSTS seconds to 1 year (be cautious with this setting)
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+# Ensure all traffic is redirected to HTTPS
+#SECURE_SSL_REDIRECT = True
+# Ensure the session cookie is only sent over HTTPS
+SESSION_COOKIE_SECURE = True
+# Ensure the CSRF cookie is only sent over HTTPS
+CSRF_COOKIE_SECURE = True
+
+
+CSRF_COOKIE_DOMAIN = ".ngoctu125.com"
+CSRF_TRUSTED_ORIGINS = [
+    'https://ngoctu125.com',
+    'https://www.ngoctu125.com',
+]
 
 # Application definition
 
@@ -174,6 +192,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Default primary key field type
