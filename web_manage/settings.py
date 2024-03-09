@@ -100,7 +100,7 @@ WSGI_APPLICATION = 'web_manage.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/var/www/ngoctu125_web/ngoctu125_web.db',
+        'NAME': os.environ.get('DB_NGOCTU125_WEB'),
         'USER': 'ngoctu125',
         'PASSWORD': '120598',
         'HOST': 'localhost',
