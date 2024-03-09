@@ -101,7 +101,7 @@
                         <h4 class="personal-project-title">{{ personal_project.project_name }}</h4>
                         <p class="personal-project-description">{{ personal_project.description|linebreaksbr }}</p>
                         <span class="skills-list">
-                            {% for tech_skill in work_experience.skills.all %}
+                            {% for tech_skill in personal_project.skills.all %}
                                 <span class="skill-tag">{{ tech_skill.name }}</span>
                             {% endfor %}
                         </span>
