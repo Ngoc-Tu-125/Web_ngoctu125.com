@@ -15,7 +15,7 @@
                 <h2>SUMMARY</h2>
                 <div class="divider-shape"></div>
                 {% if summary.summary %}
-                <p>{{ summary }}</p>
+                <p>{{ summary|linebreaksbr }}</p>
                 {% else %}
                 <p>Communication skills: I have confident verbal communication skills as demonstrated by delivering presentations in front of a large group, feeding back proposals to senior management and negotiating improvements to business processes across different departments.</p>
                 {% endif %}
@@ -57,7 +57,7 @@
                         <div class="work-experience-details">
                             <h3 class="work-experience-title">{{ work_experience.job_position }}</h3>
                             <p class="work-experience-company">{{ work_experience.company_name }}</p>
-                            <p class="work-experience-description">{{ work_experience.description }}</p>
+                            <p class="work-experience-description">{{ work_experience.description|linebreaksbr }}</p>
                             <span class="skills-list">
                                 {% for tech_skill in work_experience.skills.all %}
                                 <span class="skill-tag">{{ tech_skill.name }}</span>
@@ -99,7 +99,7 @@
                     {% for personal_project in personal_projects %}
                     <div class="personal-project-block">
                         <h4 class="personal-project-title">{{ personal_project.project_name }}</h4>
-                        <p class="personal-project-description">{{ personal_project.description }}</p>
+                        <p class="personal-project-description">{{ personal_project.description|linebreaksbr }}</p>
                         <span class="skills-list">
                             {% for tech_skill in work_experience.skills.all %}
                                 <span class="skill-tag">{{ tech_skill.name }}</span>
@@ -158,12 +158,25 @@
         <!-- Your sidebar content goes here -->
         <div class="about-sidebar-content">
             <img src="{% static 'image/avatar.jpg' %}" alt="Avatar">
+            {% if greeting %}
+            <h3>{{ greeting.greeting }}</h3>
+            <p>{{ greeting.bio|linebreaksbr }}</p>
+            {% else %}
             <h3>Hello!</h3>
             <p>I'm passionate about technology and human behavior, hardworker and a fast-learner with experience in around 10 different countries studying, working and volunteering.</p>
+            {% endif %}
             <h3>Contact details</h3>
+            {% if personal_contacts %}
+                {% for personal_contact in personal_contacts %}
+                <p>Phone: {{ personal_contact.phone }}</p>
+                <p>Email: {{ personal_contact.email }}</p>
+                <p>Address: {{ personal_contact.address }}</p>
+                {% endfor %}
+            {% else %}
             <p>Phone: +84 38502****</p>
             <p>Email: nguyenngoctu1205@gmail.com</p>
             <p>Address: Ha Noi, Viet Nam</p>
+            {% endif %}
             <h3>Get social</h3>
             <div class="row">
                 <ul class="list-unstyled">
