@@ -158,7 +158,7 @@
         <!-- Your sidebar content goes here -->
         <div class="about-sidebar-content">
             <img src="{% static 'image/avatar.jpg' %}" alt="Avatar">
-            {% if greeting %}
+            {% if greeting.greeting %}
             <h3>{{ greeting.greeting }}</h3>
             <p>{{ greeting.bio|linebreaksbr }}</p>
             {% else %}
@@ -166,10 +166,10 @@
             <p>I'm passionate about technology and human behavior, hardworker and a fast-learner with experience in around 10 different countries studying, working and volunteering.</p>
             {% endif %}
             <h3>Contact details</h3>
-            {% if personal_contacts %}
-                <p>Phone: {{ personal_contact.phone }}</p>
-                <p>Email: {{ personal_contact.email }}</p>
-                <p>Address: {{ personal_contact.address }}</p>
+            {% if personal_contacts.personal_contacts %}
+                <p>Phone: {{ personal_contacts.phone }}</p>
+                <p>Email: {{ personal_contacts.email }}</p>
+                <p>Address: {{ personal_contacts.address }}</p>
             {% else %}
             <p>Phone: +84 38502****</p>
             <p>Email: nguyenngoctu1205@gmail.com</p>
