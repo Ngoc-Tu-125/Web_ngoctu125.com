@@ -163,4 +163,4 @@ class Greeting(SingletonModel):
     bio = models.TextField(blank=True)
 
     def __str__(self):
-        return self.greeting_text[:50]
+        return self.greeting
