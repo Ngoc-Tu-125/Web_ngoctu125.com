@@ -95,6 +95,6 @@ def about_me(request):
         'work_experiences': work_experiences,
         'personal_projects': personal_projects,
         'educations': educations,
-        'personal_contacts': contacts,
+        'personal_contacts': personal_contacts,
     }
     return render(request, 'about_me.html', context)
