@@ -2,6 +2,6 @@
 
 <article>
     <h1 class="title-blog-detail">{{ tech_sharing_post.title }}</h1>
-    <p class="date-published">{{ tech_sharing_post.date_published|date:"F d, Y" }}</p>
+    {% comment %} <p class="date-published">{{ tech_sharing_post.date_published|date:"F d, Y" }}</p> {% endcomment %}
     <div class="post-content">{{ tech_sharing_post.full_content|safe }}</div>
 </article>

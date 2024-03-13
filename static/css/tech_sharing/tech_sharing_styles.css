@@ -85,3 +85,9 @@ a.tech-sections-menu-link.nav-link:hover {
     font-size: 14px; /* Smaller font size */
     margin-left: 20px; /* Indentation */
 }
+
+tbody, td, tfoot, th, thead, tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 1px !important;
+}
