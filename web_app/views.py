@@ -5,6 +5,9 @@ from django.http import JsonResponse
 from django.template.loader import render_to_string
 import requests
 from requests.exceptions import Timeout, RequestException
+from django.db.models import IntegerField
+from django.db.models.functions import Cast, Substr, StrIndex
+from django.db.models.expressions import OrderBy, F
 
 def home(request):
     home_texts = HomePageText.objects.all()
@@ -46,9 +49,16 @@ def tech_sharing(request, topic_slug=None):
 
     if topic_slug:
         topic = get_object_or_404(TechTopic, slug=topic_slug)
-        tech_sharing_posts = TechSharing.objects.filter(topic=topic, is_hidden=False).order_by('-date_published')
+        tech_sharing_posts = TechSharing.objects.annotate(
+        numeric_prefix=Cast(
+                Substr(
+                    F('slug'), 1, StrIndex(F('slug'), '-') - 1
+                ),
+                output_field=IntegerField()
+            )
+        ).filter(topic=topic, is_hidden=False).order_by('numeric_prefix')
     else:
-        tech_sharing_posts = TechSharing.objects.all().order_by('-date_published')
+        tech_sharing_posts = TechSharing.objects.all().order_by('slug')
 
     context = {
         'tech_sharing_posts': tech_sharing_posts,
