@@ -2,7 +2,7 @@ from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils.text import slugify
 from bs4 import BeautifulSoup
-from django.conf import settings
+from django.urls import reverse
 
 
 class HomePageText(models.Model):
@@ -84,6 +84,9 @@ class TechSharing(models.Model):
             unique_id = f"{id_base}-{idx}"  # Append the index to ensure uniqueness
             sections.append({'tag': heading.name, 'text': heading.text.strip(), 'id': unique_id})
         return sections
+
+    def get_absolute_url(self):
+        return reverse('tech_sharing_detail', kwargs={'topic_slug': self.topic.slug, 'post_slug': self.slug})
 
 
 
