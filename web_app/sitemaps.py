@@ -2,7 +2,7 @@
 
 from django.contrib import sitemaps
 from django.urls import reverse
-from .models import (TechSharing, TechTopic, TechSkill)
+from .models import (TechSharing, TechTopic)
 
 class StaticViewSitemap(sitemaps.Sitemap):
     priority = 0.7
