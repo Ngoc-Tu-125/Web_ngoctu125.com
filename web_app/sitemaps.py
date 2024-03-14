@@ -31,9 +31,3 @@ class TechTopicSitemap(sitemaps.Sitemap):
     def items(self):
         return TechTopic.objects.all()
 
-class TechSkillSitemap(sitemaps.Sitemap):
-    changefreq = "weekly"
-    priority = 0.8
-
-    def items(self):
-        return TechSkill.objects.all()
