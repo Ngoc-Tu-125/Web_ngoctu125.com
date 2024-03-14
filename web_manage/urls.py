@@ -20,13 +20,12 @@ from django.urls import path, include
 from web_app import views
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
-from web_app.sitemaps import StaticViewSitemap, TechSharingSitemap, TechTopicSitemap, TechSkillSitemap
+from web_app.sitemaps import StaticViewSitemap, TechSharingSitemap, TechTopicSitemap
 
 sitemaps = {
     'static': StaticViewSitemap,
     'tech_sharing': TechSharingSitemap,
     'tech_topic': TechTopicSitemap,
-    'tech_skills': TechSkillSitemap,
 }
 
 
