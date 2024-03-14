@@ -52,6 +52,9 @@ class TechTopic(models.Model):
             self.slug = slugify(self.title)
         super(TechTopic, self).save(*args, **kwargs)
 
+    def get_absolute_url(self):
+        return reverse('tech_sharing_by_topic', kwargs={'topic_slug': self.slug})
+
 class TechSharing(models.Model):
     title = models.CharField(max_length=255)
     date_published = models.DateTimeField(auto_now_add=True)
