@@ -21,6 +21,7 @@ class TechTopicAdmin(admin.ModelAdmin):
 class TechSharingAdmin(admin.ModelAdmin):
     list_display = ('title', 'date_published', 'topic', 'slug')
     prepopulated_fields = {"slug": ("title",)}
+    list_filter = ('topic',)
 
 
 admin.site.register(Tag)
